@@ -1,0 +1,36 @@
+<%= render :partial => 'invertable_bar' %>
+
+  <div class='site-body w1000'>
+    <div class='padding'>
+
+      <%= render :partial => 'about' %>
+
+      <ul>
+        <li class='work-teaser odd'>
+          <%= render :partial => 'projects/assembly_row' %>
+        </li>
+
+        <li class='work-teaser even'>
+          <%= render :partial => 'projects/hum' %>
+        </li>
+
+        <li class='work-teaser odd'>
+          <%= render :partial => 'projects/bbc' %>
+        </li>
+
+        <li class='work-teaser even'>
+          <%= render :partial => 'projects/boost' %>
+        </li>
+
+        <li class='work-teaser odd'>
+          <%= render :partial => 'projects/rhel' %>
+        </li>
+
+        <li class='work-teaser even'>
+          <%= render :partial => 'projects/lynch' %>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <%= render :partial => 'footer' %>

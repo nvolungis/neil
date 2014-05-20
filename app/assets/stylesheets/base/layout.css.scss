@@ -1,0 +1,36 @@
+.h100 {
+  height: 100%;
+}
+
+.w400 {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.w620 {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.w700 {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.w800 {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.w1000 {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.padding {
+  padding: 20px;
+
+  @media screen and (min-width: 750px){
+    padding: 20px 40px;
+  }
+}

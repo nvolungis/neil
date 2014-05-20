@@ -1,0 +1,29 @@
+.button {
+  @include inline-block();
+  @include box-sizing(border-box);
+  padding: 30px;
+  font-size: 19px;
+  border: 2px solid black;
+  color: black;
+  text-decoration: none;
+  text-align: center;
+
+  &:hover {
+    background: #dfeaf7;
+  }
+
+  &.big {
+    width: 270px; 
+    margin-bottom: 20px;
+  }
+}
+
+.buttons {
+  margin-top: 40px;
+  text-align: center;
+
+  .button {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}

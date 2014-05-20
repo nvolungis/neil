@@ -1,0 +1,15 @@
+.site-body {
+  .padding {
+    margin-top: 80px;
+  }
+}
+
+.no-touch .site-body {
+  .padding {
+    margin-top: 160px;
+
+    @media screen and (min-width: 600px){
+      margin-top: 200px;
+    }
+  } 
+}

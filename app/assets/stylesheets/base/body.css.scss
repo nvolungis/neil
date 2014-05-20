@@ -1,0 +1,77 @@
+body {
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  color: #282828;
+}
+
+::selection {
+  background: #282828;
+  color: white;
+}
+
+::-moz-selection {
+  background: #282828;
+  color: white;
+}
+
+a {
+  color: #da1f26;
+  text-transform: uppercase;
+
+  &:hover {
+    color: black;
+  }
+}
+
+strong {
+  font-weight: 900;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "CubanoRegular", serif;
+  line-height: 1.2em;
+}
+
+h1 {
+  font-size: 40px;
+
+  @media screen and (min-width: 600px){
+    font-size: 48px;
+  }
+}
+
+h2 {
+  font-size: 35px;
+
+  @media screen and (min-width: 600px){
+    font-size: 42px;
+  }
+}
+
+h3 {
+  font-size: 30px;
+
+  @media screen and (min-width: 600px){
+    font-size: 35px;
+  }
+}
+
+h4 {
+  font-size: 25px;
+}
+
+p {
+  line-height: 1.6em;
+  margin: 1.2em 0;
+}
+
+hr {
+  border: none;
+  background: rgba(0,0,0,.5);
+  height: 1px;
+  margin: 0 20px;
+}
+
+img {
+  outline: none;
+}

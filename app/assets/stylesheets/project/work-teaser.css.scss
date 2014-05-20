@@ -1,0 +1,49 @@
+.work-teaser {
+  overflow: hidden;
+  margin: 90px 0;
+  text-align: center;
+
+  @media screen and (min-width: 750px){
+    text-align: left;
+  }
+}
+
+.work-teaser-image {
+  max-width: 200px;   
+  margin-bottom: 20px;
+  border-radius: 50%;
+
+  @media screen and (min-width: 600px){
+    max-width: 300px; 
+  }
+
+  @media screen and (min-width: 750px){
+    margin-bottom: 0;
+  }
+}
+
+.work-teaser.odd {
+   @media screen and (min-width: 750px){
+    .work-teaser-image {
+      float: left;
+      margin-right: 50px;
+    }
+
+    .work-teaser-body {
+      margin-left: 350px;
+    }
+  } 
+}
+
+.work-teaser.even {
+  @media screen and (min-width: 750px){
+    .work-teaser-image {
+      float: right;
+      margin-left: 50px;
+    }
+
+    .work-teaser-body {
+      margin-right: 350px;
+    }
+  }
+}

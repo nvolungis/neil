@@ -1,0 +1,16 @@
+.site-name {
+  text-align: center;
+  font-size: 30px;
+  height: 100%;
+  padding-top: 10px;
+  @include box-sizing(border-box);
+
+  @media screen and (min-width: 600px){
+    font-size: 45px;
+    padding-top: 13px;
+  }
+
+  &.skrollable-after {
+    top:0;
+  }
+}

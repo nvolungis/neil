@@ -1,0 +1,51 @@
+.no-touch .invertable-bar-light {
+  -skrollr-animation-name: lightanimation; 
+}
+
+.no-touch .invertable-bar-light .site-name {
+  -skrollr-animation-name: lightnameanimation;
+}
+
+.no-touch .invertable-bar-area {
+  -skrollr-animation-name: topbarareaanimation;
+}
+
+
+@-skrollr-keyframes lightanimation {
+  101 {
+    transform: translate3d(0px, 0px, 0px);
+  }
+
+  186 {
+    transfrom: translate3d(0px, -100%, 0px);
+  }
+}
+
+
+@-skrollr-keyframes lightnameanimation {
+  0 {
+    transform:translate3d(0px, 40px, 0px) scale(1.5);
+  }
+    
+  100 {
+    transform:translate3d(0px, 0px, 0px) scale(1);
+  }
+
+  101 { 
+    transform:translate3d(0px, 0%, 0px) scale(1);
+  } 
+
+  186 {
+    transform:translate3d(0px, 100%, 0) scale(1);
+  }
+}
+
+@-skrollr-keyframes topbarareaanimation {
+  0 {
+    overflow: visible;
+  }
+
+  100 {
+    overflow: hidden;
+  } 
+}

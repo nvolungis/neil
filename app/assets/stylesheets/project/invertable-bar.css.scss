@@ -1,0 +1,62 @@
+.invertable-bar-area {
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  height: 60px;
+  overflow:hidden;
+  opacity: 0;
+  @include transition(opacity 500ms ease);
+  @include transition-delay(300ms);
+
+  @media screen and (min-width: 600px){
+    height: 84px;
+  }
+}
+
+.js .invertable-bar-area {
+  opacity: 1;
+}
+
+.invertable-bar {
+  position: absolute;
+  top:0;
+  left:0;
+  right: 0;
+  background: white;
+  height:inherit;
+  overflow:hidden;
+}
+
+.invertable-bar-light {
+  background: white;
+  z-index:2;
+
+  .site-name {
+    color:black;
+    @include transform(translate3d(0px, 40px, 0px));
+  }
+
+  &.skrollable-before {
+    overflow: visible; 
+  }
+}
+
+.touch .invertable-bar-light {
+  .site-name {
+    @include transform(translate3d(0px, 0px, 0px));
+  }
+}
+
+.invertable-bar-dark {
+  background: black;
+  z-index:3;
+    
+  &.skrollable-before {
+    display: none;
+  }
+
+  .site-name {
+    color:white;
+  }
+}
