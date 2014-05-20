@@ -28,3 +28,5 @@ gem 'jbuilder', '~> 1.2'
 gem 'bourbon'
 
 gem 'rails_12factor'
+
+gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
