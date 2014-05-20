@@ -26,3 +26,5 @@ gem 'jbuilder', '~> 1.2'
 
 # Use Bourbon for mixins
 gem 'bourbon'
+
+gem 'rails_12factor'
