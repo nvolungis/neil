@@ -2,5 +2,7 @@
 }
 
 .project-header {
-  text-align: center;
+  @media screen and (min-width: 450px){
+    text-align: center;
+  }
 }
