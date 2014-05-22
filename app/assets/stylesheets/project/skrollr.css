@@ -1,10 +1,4 @@
-.invertable-bar-light .site-name {
-  -skrollr-animation-name: lightnameanimation;
-}
 
-.invertable-bar-area {
-  -skrollr-animation-name: topbarareaanimation;
-}
 
 
 @-skrollr-keyframes lightanimation {
