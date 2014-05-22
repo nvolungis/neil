@@ -1,19 +1,15 @@
-.no-touch .invertable-bar-light {
-  -skrollr-animation-name: lightanimation; 
-}
-
-.no-touch .invertable-bar-light .site-name {
+.invertable-bar-light .site-name {
   -skrollr-animation-name: lightnameanimation;
 }
 
-.no-touch .invertable-bar-area {
+.invertable-bar-area {
   -skrollr-animation-name: topbarareaanimation;
 }
 
 
 @-skrollr-keyframes lightanimation {
   101 {
-    transform: translate3d(0px, 0px, 0px);
+    transform: translate3d(0px, 0%, 0px);
   }
 
   186 {
