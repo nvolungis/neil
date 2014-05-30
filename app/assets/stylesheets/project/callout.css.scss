@@ -1,0 +1,55 @@
+.callouts {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.callout {
+  width: 30%;  
+  @include inline-block();
+  text-align: center;
+
+  .line {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.callout-circle {
+  @include inline-block();
+  width: 125px;
+  height: 125px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 50%;
+}
+
+.callout-circle-color {
+  border-radius: 50%;
+  position: absolute;
+  z-index:1;
+  background: black;
+  height: 100%;
+  width: 0%;
+}
+
+.active {
+  .callout-circle-color {
+    @include transition-property(width);
+    @include transition-duration(300ms);
+    @include transition-timing-function(ease);
+
+    width: 100%;
+  }
+
+  $delays: 600, 800, 1000, 1200, 1300, 1400, 1500, 1600, 1800;
+
+  @each $delay in $delays {
+    .delay-#{$delay}{
+      & > .callout-circle-color {
+        @include transition-delay($delay + ms);
+      }
+    }
+  }
+}
+
+

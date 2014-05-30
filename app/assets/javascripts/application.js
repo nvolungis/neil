@@ -12,5 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require ./vendor/CSSPlugin.min
+//= require ./vendor/TweenMax.min
 //= require_tree ./vendor
 //= require_tree .

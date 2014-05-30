@@ -1,0 +1,58 @@
+.bullet-group {
+  margin-bottom: 10px;
+}
+
+.bullet {
+  position: relative;
+  padding-left: 12px;
+  margin-top: 20px;
+
+  .dot {
+    position: absolute;
+    left: 0;
+    border-radius: 50%;
+    width: 7px;
+    height: 7px;
+    background: white;
+  }
+}
+
+.bullet-line {
+  height: 3px;
+  width: 0;
+  margin-bottom: 5px;
+  background: black;
+}
+
+.active {
+  .bullet-line{
+    @include transition-property(width);
+    @include transition-duration(100ms);
+    @include transition-timing-function(ease);
+  }
+
+  .dot {
+     background: black;
+   }
+
+  $delays: 1200, 1300, 1400, 1500, 1600, 1700, 1800, 2000;
+  $lines:  95%,  90%,  100%, 90%,  95%;
+
+  @each $delay in $delays {
+    .delay-#{$delay}{
+      .dot {
+        @include transition-delay($delay + ms);
+      }
+
+      @each $line in $lines {
+        $index: index($lines, $line);
+
+        .bullet-line-#{$index}{
+          width: $line;
+          @include transition-delay($index*100 + $delay + ms);
+        }
+
+      }
+    }
+  }
+}

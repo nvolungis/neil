@@ -1,0 +1,44 @@
+.line-group {
+  @include box-sizing(border-box);
+  padding: 20px 10px 10px;
+  margin-bottom: 5px;
+}
+
+.line {
+  background: black;
+  height: 3px;
+  width: 0;
+  margin-bottom: 5px;
+}
+
+.line-medium {
+  height: 5px;
+}
+
+.line-fat {
+  height: 15px;
+}
+
+.active {
+  .line{
+    @include transition-property(width);
+    @include transition-duration(300ms);
+    @include transition-timing-function(ease);
+  }
+
+  $delays: 600, 800, 1000, 1200, 1300, 1400, 1500, 1600, 1800;
+  $lines:  90%,  95%,  100%, 80%,  85%;
+
+  @each $delay in $delays {
+    .delay-#{$delay}{
+      @each $line in $lines {
+        $index: index($lines, $line);
+
+        .line-#{$index}{
+          width: $line;
+          @include transition-delay($index*100 + $delay + ms);
+        }
+      }
+    }
+  }
+}
