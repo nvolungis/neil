@@ -14,5 +14,8 @@
 //= require jquery_ujs
 //= require ./vendor/CSSPlugin.min
 //= require ./vendor/TweenMax.min
+//= require ./vendor/jquery.scrollmagic
+//= require ./vendor/jquery.scrollmagic.debug
 //= require_tree ./vendor
+//= require_tree ./lib
 //= require_tree .

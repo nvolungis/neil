@@ -1,0 +1,16 @@
+.columns {
+    
+  @media screen and (min-width: 700px){
+    @include columns(2);
+    @include column-gap(20px);
+  } 
+
+  @media screen and (min-width: 1000px){
+    @include columns(3);
+    @include column-gap(20px);
+  } 
+
+  p:first-child {
+    margin-top: 0;
+  }
+}

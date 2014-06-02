@@ -1,0 +1,41 @@
+.heart {
+  position: relative;
+  width: 156px;
+  height: 180px;
+  @include inline-block();
+  @include transition(transform 500ms $ease-out-back);
+
+  &:before,
+  &:after {
+    position: absolute;
+    content: '';
+    left: 100px;
+    top: 0;
+    width: 100px;
+    height: 160px;
+    background: red;
+    border-radius: 100px 100px 0 0;
+    @include transform(rotate(-45deg));
+    @include transform-origin(0 100%);
+  }
+
+  &:after {
+    left: 0;
+    @include transform(rotate(45deg));
+    @include transform-origin(100% 100%);
+  }
+
+  &.step-1 {
+    @include transform(scale(1.5));
+  }
+
+  &.step-2 {
+    @include transform(scale(2));
+  }
+
+  &.step-3 {
+    @include transform(scale(2.5));
+  }
+}
+
+

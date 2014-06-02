@@ -1,0 +1,65 @@
+.process-icons {
+  width: 100%;
+  text-align: center;
+
+  li {
+    width: 16%;
+    @include inline-block();
+  }
+}
+
+.process-icon {
+  opacity: 0;
+  height: 72px;
+  background: image_url('sprite-process-icons.svg') 0 0 no-repeat;
+  @include inline-block();
+  @include transform(scale(1) translateY(50px));
+  @include transition(transform 300ms ease, opacity 300ms ease);
+
+  &.design-thinking {
+    width: 40px;
+    background-position: -17px -82px;
+  }
+
+  &.concept {
+    width: 72px;
+    background-position: -72px -82px;
+  }
+
+  &.prototype {
+    width: 49px;
+    background-position: -155px -82px;
+  }
+
+  &.validation {
+    width: 58px;
+    background-position: -221px -82px;
+  }
+
+  &.learning {
+    width: 59px;
+    background-position: -294px -82px;
+  }
+
+  &.support {
+    width: 73px;
+    background-position: -360px -82px;
+  }
+}
+
+.active .process-icon {
+  @include transform(scale(1.5) translateY(0));
+  opacity: 1;
+
+  $icons: design-thinking, concept, prototype, validation, learning, support;
+
+  @each $icon in $icons {
+    $i: index($icons, $icon) - 1;
+   
+    &.#{$icon}{
+      @include transition-delay($i * 100ms);
+    }
+  }
+}
+
+

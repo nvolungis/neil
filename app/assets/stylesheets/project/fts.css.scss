@@ -11,6 +11,18 @@
   }
 }
 
+.fts-chapter {
+  position: relative;
+}
+
+.fts-chapter-stretcher {
+  position: absolute;
+  top: -1000px;
+  bottom: -1000px;
+  right: 0;
+  width: 60%;
+}
+
 .fts-introduction {
   height: 100%;
 }
@@ -18,7 +30,7 @@
 .fts-introduction-figure {
   top: 0;
   bottom: 0;
-  position: absolute;
+  position: fixed;
 }
 
 .fts-introduction-statement {
@@ -33,12 +45,114 @@
   height: 100%;
 }
 
+.chapter-1-2 {
+  padding: 120px 20px 20px;
+  background: white;
+  text-align: center;
+}
+
 .chapter-2 {
+  height: 100%;
+  width: 100%;
   background: white;
   padding: 1px;
   text-align: center;
+  left: 0;
+  right: 0;
 
   h1 {
-    margin-top: 100px;
+    margin-top: 30px;
+  }
+
+  .w1200 {
+    height: 100%;
+    width: 100%;
+    position: relative;
   }
 }
+
+.chapter-two-statement {
+  @include box-sizing(border-box);
+  height: 100%;
+  width: 38%;
+  padding: 20px;
+  text-align: left;
+}
+
+.chapter-3 {
+  height: 100%;
+  width: 100%;
+  background: black;
+}
+
+
+.chapter-three-statement {
+  width: 100%;
+  color: white;
+  margin-top: 100px;
+
+  h1 {
+   text-align: center;
+   margin-bottom: 30px;
+  }
+}
+
+.chapter-4 {
+  height: 100%;
+  width: 100%;
+  background: white;
+
+  .w1200 {
+    height: 100%;
+  }
+}
+
+.chapter-four-statement {
+  width: 50%;
+  float: left;
+}
+
+.chapter-four-figure {
+  width: 50%;
+  float: right;
+  text-align: center;
+}
+
+.chapter-5 {
+  height: 100%;
+  width: 100%;
+  background: black;
+  color: white;
+}
+
+.chapter-five-statement {
+  text-align: center;
+}
+
+.sentence-frag {
+  vertical-align: middle;
+
+  &.fts,
+  &.neil,
+  &.dollars,
+  &.happy {
+    font-size: 1.5em; 
+  }
+
+  &.happy {
+    // background: yellow;
+    border: 5px solid white;
+    border-radius: 50%;
+    height: 1.5em;
+    width: 1.5em;
+    font-family: arial;
+    @include inline-block();
+    @include transform(rotate(90deg));
+
+    .face {
+      @include inline-block();   
+      margin-top: .25em;
+    }
+  }
+}
+
