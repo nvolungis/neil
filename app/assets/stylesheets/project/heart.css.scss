@@ -1,21 +1,20 @@
 .heart {
   position: relative;
-  width: 193px;
-  height: 156px;
+  width: 289px;
+  height: 234px;
   @include inline-block();
   @include transition(transform 500ms $ease-out-back);
-  @include transform(scale(2));
 
   &:before,
   &:after {
     position: absolute;
     content: '';
-    left: 100px;
+    left: 150px;
     top: 0;
-    width: 100px;
-    height: 160px;
-    background: red;
-    border-radius: 100px 100px 0 0;
+    width: 150px;
+    height: 240px;
+    background: #da1f26;
+    border-radius: 150px 150px 0 0;
     @include transform(rotate(-45deg));
     @include transform-origin(0 100%);
   }
@@ -27,7 +26,7 @@
   }
 
   &.active {
-    @include transform(scale(3));
+    @include transform(scale(2));
   }
 }
 

@@ -9,6 +9,9 @@
   height: 3px;
   width: 0;
   margin-bottom: 5px;
+  @include transition-property(width);
+  @include transition-duration(300ms);
+  @include transition-timing-function(ease);
 }
 
 .line-medium {
@@ -20,12 +23,6 @@
 }
 
 .active {
-  .line{
-    @include transition-property(width);
-    @include transition-duration(300ms);
-    @include transition-timing-function(ease);
-  }
-
   $delays: 600, 800, 1000, 1200, 1300, 1400, 1500, 1600, 1800;
   $lines:  90%,  95%,  100%, 80%,  85%;
 

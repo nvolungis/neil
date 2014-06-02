@@ -13,8 +13,8 @@
   height: 72px;
   background: image_url('sprite-process-icons.svg') 0 0 no-repeat;
   @include inline-block();
-  @include transform(scale(1) translateY(50px));
-  @include transition(transform 300ms ease, opacity 300ms ease);
+  @include transform(scale(1) translateY(75px));
+  @include transition(transform 300ms $ease-out-back, opacity 300ms ease);
 
   &.design-thinking {
     width: 40px;

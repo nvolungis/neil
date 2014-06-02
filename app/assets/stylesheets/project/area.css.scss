@@ -4,14 +4,9 @@
   @include box-sizing(border-box);
 }
 
-.area-filled {
-  background: white;   
-  @include transition-property(none);
-}
-
-
 .border {
-  @include transition-property(none);
+  @include transition-property(transform);
+  @include transition-duration(100ms);
   background: black;
   position: absolute;
 }
@@ -58,27 +53,8 @@
   @include transform(translate3d(0, 100%, 0));
 }
 
-$delays: 0, 800, 1000, 1200, 1400, 1600;
-$props: border-top, border-right, border-bottom, border-left;
-
-@for $i from 1 through length($props){
-  $prop: nth($props, $i);
-
-    @each $delay in $delays {
-    .delay-#{$delay} {
-      & > .#{$prop} {
-        @include transition-delay(($i - 1) * 100 + $delay + ms);
-      }
-    }
-  }
-}
 
 .active {
-  .border {
-    @include transition-property(transform);
-    @include transition-duration(100ms);
-  }
-
   .border-top,
   .border-right,
   .border-bottom,
@@ -86,8 +62,20 @@ $props: border-top, border-right, border-bottom, border-left;
     @include transform(translate3d(0, 0, 0));
   }
 
-  .area-filled {
-    @include transition(background 300ms ease 1400ms);
-    background: black;
+  $delays: 0, 800, 1000, 1200, 1400, 1600;
+  $props: border-top, border-right, border-bottom, border-left;
+
+  @for $i from 1 through length($props){
+    $prop: nth($props, $i);
+
+      @each $delay in $delays {
+      .delay-#{$delay} {
+        & > .#{$prop} {
+          @include transition-delay(($i - 1) * 100 + $delay + ms);
+        }
+      }
+    }
   }
+
+  
 }

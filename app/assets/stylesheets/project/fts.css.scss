@@ -31,6 +31,13 @@
   top: 0;
   bottom: 0;
   position: fixed;
+  height: 100%;
+  width: 100%;
+
+  .w1200 {
+    position: relative;
+    height: 100%;
+  }
 }
 
 .fts-introduction-statement {
@@ -127,10 +134,21 @@
 
 .chapter-five-statement {
   text-align: center;
+
+  h1 {
+    margin-bottom: 100px;
+  }
+
+  p {
+    line-height: 1.8em;
+  }
 }
 
 .sentence-frag {
   vertical-align: middle;
+  opacity: 0;
+  @include transform(translateY(25px));
+  @include transition(opacity 200ms ease, transform 200ms ease);
 
   &.fts,
   &.neil,
@@ -140,7 +158,6 @@
   }
 
   &.happy {
-    // background: yellow;
     border: 5px solid white;
     border-radius: 50%;
     height: 1.5em;
@@ -155,4 +172,24 @@
     }
   }
 }
+
+.active .sentence-frag {
+  opacity: 1;
+  @include transform(translateY(0));
+
+  $frags: fts, plus, neil, equals, dollars, happy;
+
+  @each $frag in $frags {
+    $index: index($frags, $frag) - 1;
+
+    &.#{$frag} {
+      @include transition-delay($index * 100ms);
+    }
+  }
+
+  &.happy {
+    @include transform(translateY(0) rotate(90deg));
+  }
+}
+
 
