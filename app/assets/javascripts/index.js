@@ -44,6 +44,8 @@ var controller = new ScrollMagic();
         $('.responsive-animation')
         .addClass('desktop')
         .removeClass('tablet mobile');
+        
+        $('.chapter-2').addClass('active');
       },
       onEnd: function(){ }
     },
@@ -55,6 +57,8 @@ var controller = new ScrollMagic();
         $('.responsive-animation')
         .addClass('tablet')
         .removeClass('desktop mobile');
+
+        $('.chapter-2').addClass('active');
       },
       onEnd: function(){ }
     },
@@ -65,6 +69,8 @@ var controller = new ScrollMagic();
         $('.responsive-animation')
           .addClass('mobile')
           .removeClass('desktop tablet');
+
+        $('.chapter-2').addClass('active');
       },
       onEnd: function(){ }
     }]
@@ -117,52 +123,22 @@ var controller = new ScrollMagic();
 // Chapter 4
 
   var scene6 = new ScrollScene({
-       triggerElement: '.chapter-4', 
-       triggerHook: 0,
-       duration: 1000
-     })
-     .setPin('.chapter-4')
-     .addTo(controller);
+    triggerElement: '.heart',
+    duration: 100
+  }).addTo(controller);
 
-  var scene6_actions = new SceneActions(scene6, {
-    internal_actions:[{
-      start: 0, 
-      end: .3,
-      onStart: function(){
-        $('.heart')
-        .addClass('step-1')
-        .removeClass('step-2 step-3');
-      },
-      onEnd: function(){ }
+  var scene5_actions = new SceneActions(scene6, {
+    on_before:function(){
+      $('.heart').removeClass('active');
     },
 
-    {
-      start: .31, 
-      end: .6,
-      onStart: function(){
-        $('.heart')
-        .addClass('step-2')
-        .removeClass('step-1 step-3');
-      },
-      onEnd: function(){ }
-    },
-    {
-      start: .61, 
-      end: 1,
-      onStart: function(){
-        $('.heart')
-          .addClass('step-3')
-          .removeClass('step-1 step-2');
-      },
-      onEnd: function(){ }
-    }]
+    on_inside: function(){
+      $('.heart').addClass('active');
+    }
   });
 
 
-
-  scene1.addIndicators();
-  scene2.addIndicators();
-  scene4.addIndicators();
+/*   scene1.addIndicators(); */
 
   $(window).trigger('scroll');
 }(jQuery));
