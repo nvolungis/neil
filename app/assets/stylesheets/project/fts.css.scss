@@ -33,10 +33,16 @@
   position: fixed;
   height: 100%;
   width: 100%;
+  opacity: 0;
+  @include transition(opacity 300ms ease);
 
   .w1200 {
     position: relative;
     height: 100%;
+  }
+
+  &.active {
+    opacity: 1;
   }
 }
 
@@ -130,6 +136,8 @@
   width: 100%;
   background: black;
   color: white;
+  position: relative;
+  z-index: 1;
 }
 
 .chapter-five-statement {
@@ -191,5 +199,3 @@
     @include transform(translateY(0) rotate(90deg));
   }
 }
-
-

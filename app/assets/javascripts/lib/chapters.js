@@ -7,8 +7,9 @@
     //Chapter 1;
 
     register: function(){
-      var tween, scene;
+      var tween, scene, scene_actions, $sketch;
       
+      $sketch = $('.fts-introduction-figure');
       tween = TweenMax.to( '.fts-introduction-figure', .5, {y: -250});
       scene = new ScrollScene({
         triggerElement: '.chapter-1',
@@ -17,6 +18,17 @@
       })
       .setTween(tween)
       .addTo(controller);
+
+      scene_actions = new SceneActions(scene, {
+        on_inside: function(){
+          $sketch.addClass('active');
+        },
+
+        on_after: function(){
+          $sketch.removeClass('active');
+        }
+      });
+
     }},
 
     {
@@ -85,24 +97,25 @@
     {
       // Chapter 3
       register: function(){
-        var tween, scene, scene2, scene2_actions, $chapter;
+        var tween, scene, scene_actions, scene2, scene2_actions, $chapter;
 
         $chapter = $('.chapter-3');
+        var $chapter2 = $('.chapter-2');
 
-        tween = new TweenMax.to('.chapter-2', .5, {y: 400});
+        // tween = new TweenMax.to('.chapter-2', .5, {y: 400});
 
-        scene = new ScrollScene({
-          triggerElement: '.chapter-3',
-          triggerHook: 1,
-          duration: 1000
-        }).setTween(tween).addTo(controller);
-        
+        // scene = new ScrollScene({
+        //   triggerElement: '.chapter-3',
+        //   triggerHook: 1,
+        //   duration: 1000
+        // }).addTo(controller);
+
         scene2 = new ScrollScene({
           triggerElement: '.process-icons',
           duration: 100
         }).addTo(controller);
 
-        var scene2_actions = new SceneActions(scene2, {
+        scene2_actions = new SceneActions(scene2, {
           on_before:function(){
             $chapter.removeClass('active');
           },

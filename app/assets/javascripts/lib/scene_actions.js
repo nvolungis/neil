@@ -4,6 +4,7 @@
 
     this.current_state    = null,
     this.internal_actions = options.internal_actions;
+    this.on_progress      = options.on_progress;
 
     this.scene     = scene;
     this.on_before = options.on_before;
@@ -14,7 +15,7 @@
 
   $.extend(SceneActions.prototype, {
     bind: function(){
-      this.scene.on('progress',    this.on_progress.bind(this));
+      this.scene.on('progress',    this.on_progress_private.bind(this));
       this.scene.on('enter leave', this.on_enter_leave.bind(this));
       this.scene.on('start end',   this.on_start_end.bind(this));
     },
@@ -24,6 +25,7 @@
         on_before: function(){},
         on_after:  function(){},
         on_inside: function(){},
+        on_progress: function(){},
         internal_actions: []
       };
 
@@ -49,11 +51,13 @@
       this['on_' + this.outer_state]();
     },
 
-    on_progress: function(e){
-      var i, len = this.internal_actions.length;
+    on_progress_private: function(e){
+      var i, len = this.internal_actions.length, progress = e.progress;
+
+      this.on_progress(progress);
 
       for(i = 0; i < len; i++){
-        this.check_internal_action(this.internal_actions[i], i, e.progress);
+        this.check_internal_action(this.internal_actions[i], i, progress);
       }
     },
 
