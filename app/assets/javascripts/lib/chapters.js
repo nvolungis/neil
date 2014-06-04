@@ -18,16 +18,18 @@
   scenes.push({
     register: function(){
       this.$process_icons = $('.process-icons');
-      this.$chapter     = $('.chapter-3');
+      this.$chapter       = $('.chapter-3');
+
+      this.$process_icons.removeClass('active');
 
       this.$process_icons.bind('inview', function(e, inview, vx, vy){
-        update_status(inview, this.$chapter);
+        update_status(inview, this.$process_icons);
       }.bind(this));
     },
 
     unregister: function(){
       this.$process_icons.unbind('inview');
-      activate(this.$chapter);
+      activate(this.$process_icons);
     },
 
     setup: function(){
