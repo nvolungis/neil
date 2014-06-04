@@ -3,8 +3,14 @@
   text-align: center;
 
   li {
-    width: 16%;
+    width: 32%;
+    margin-bottom: 25px;
     @include inline-block();
+
+    @media screen and (min-width: 700px){
+      width: 16%;
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -48,8 +54,12 @@
 }
 
 .active .process-icon {
-  @include transform(scale(1.5) translateY(0));
+  @include transform(translateY(0));
   opacity: 1;
+
+  @media screen and (min-width: 700px){
+    @include transform(scale(1.5) translateY(0));
+  }
 
   $icons: design-thinking, concept, prototype, validation, learning, support;
 
