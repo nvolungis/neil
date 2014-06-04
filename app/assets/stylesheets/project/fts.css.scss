@@ -3,16 +3,23 @@
   @include box-sizing(border-box);
 
   .fts-avatar {
-    position: absolute;  
-    bottom: 0;
     max-height: 95%;
-    max-width: 700px;
+    max-width: 100%;
     width: 1000px;
+
+    @media screen and (min-width: 700px){
+      
+      max-width: 700px;
+      position: absolute;  
+      bottom: 0;
+    }
   }
 }
 
 .fts-chapter {
   position: relative;
+  overflow: hidden;
+  max-width: 100%;
 }
 
 .fts-chapter-stretcher {
@@ -25,14 +32,14 @@
 
 .fts-introduction {
   height: 100%;
+  width: 100%;
 }
 
 .fts-introduction-figure {
   top: 0;
   bottom: 0;
-  position: fixed;
-  height: 100%;
   width: 100%;
+  max-width: 100%;
   opacity: 0;
   @include transition(opacity 300ms ease);
 
@@ -44,18 +51,29 @@
   &.active {
     opacity: 1;
   }
+
+  @media screen and (min-width: 700px){
+    position: fixed;
+  }
 }
 
 .fts-introduction-statement {
-  width: 40%;
-  float: right;
-  height: 100%;
-  @include box-sizing(border-box);
+  position: relative;
+  z-index: 1;
   padding: 0 30px;
+  @include box-sizing(border-box);
+
+  @media screen and (min-width: 700px){
+    height: 100%;
+    float: right;
+    width: 40%;
+  }
 }
 
 .chapter-1 {
-  height: 100%;
+  @media screen and (min-width: 700px){
+    height: 100%;
+  }
 }
 
 .chapter-1-2 {
@@ -183,7 +201,7 @@
 
 .active .sentence-frag {
   opacity: 1;
-  @include transform(translateY(0));
+  @include transform(translateY(0) translateZ(0));
 
   $frags: fts, plus, neil, equals, dollars, happy;
 

@@ -189,8 +189,10 @@
 
     register_chapters = function(){
       for(var i = 0; i < chapters.length; i += 1){
-        chapters[i].register(); 
+        // chapters[i].register(); 
       }
+
+      chapters[1].register();
     }
 
     window.register_chapters = register_chapters;

@@ -4,6 +4,7 @@
   height: 234px;
   @include inline-block();
   @include transition(transform 500ms $ease-out-back);
+  @include transform(translateZ(0));
 
   &:before,
   &:after {
@@ -26,7 +27,7 @@
   }
 
   &.active {
-    @include transform(scale(2));
+    @include transform(scale(1.5));
   }
 }
 
