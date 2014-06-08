@@ -12,10 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require ./vendor/CSSPlugin.min
-//= require ./vendor/TweenMax.min
-//= require ./vendor/jquery.scrollmagic
-//= require ./vendor/jquery.scrollmagic.debug
-//= require_tree ./vendor
+//= require ../../../vendor/assets/javascripts/cssplugin.min
+//= require ../../../vendor/assets/javascripts/tweenmax.min
+//= require ../../../vendor/assets/javascripts/jquery.scrollmagic
+//= require ../../../vendor/assets/javascripts/jquery.scrollmagic.debug
+//= require_tree ../../../vendor/assets/javascripts/
 //= require_tree ./lib
 //= require_tree .

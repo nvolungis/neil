@@ -10,13 +10,14 @@
       forceHeight: false
     });
 
+   
     enquire.register('screen and (min-width:700px)', {
       match: function(){
-        register_chapters();
+        if(!Modernizr.touch){ register_chapters(); }
       }, 
 
       unmatch: function(){
-        unregister_chapters();
+        if(!Modernizr.touch){ unregister_chapters(); }
       },
 
       setup: function(){
@@ -24,8 +25,17 @@
       }
     });
 
-  });
+    var asset_loader = new AssetLoader({
+      on_complete: function(){
+        $('body').removeClass('loading');  
+      }
+    });
 
+    asset_loader.load([
+      { id: "avatar",  src: "<%= image_path 'avatar.svg' %>" }, 
+      { id: "icons",   src: "<%= image_path 'sprite-process-icons.svg' %>" }
+    ]);
+  });
 
 
   $(window).trigger('scroll');

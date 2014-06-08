@@ -164,14 +164,14 @@
     },
 
     setup: function(){
-      console.log('setup');
-      $('.chapter-2').addClass('active');
-      $('.responsive-animation').find('.responsive-animation').removeClass('tablet mobile').addClass('desktop');
+      if($(window).width() <= 700 || Modernizr.touch){
+        $('.chapter-2').addClass('active');
+        $('.responsive-animation').find('.responsive-animation').removeClass('tablet mobile').addClass('desktop');
+      }
     }
   });
 
   setup_chapters = function(){
-    console.log('setup_chapters');
     for(var i = 0; i < scenes.length; i += 1){
       if(scenes[i].setup){
         scenes[i].setup(); 

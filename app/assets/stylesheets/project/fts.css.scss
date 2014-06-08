@@ -8,7 +8,6 @@
     width: 1000px;
 
     @media screen and (min-width: 700px){
-      
       max-width: 60%;
       position: absolute;  
       bottom: 0;
@@ -72,6 +71,13 @@
 .fts-introduction {
   height: 100%;
   width: 100%;
+  opacity: 1;
+  @include transition(opacity 300ms ease);
+  @include transition-delay(300ms);
+}
+
+.loading .fts-introduction {
+  opacity: 0;
 }
 
 .fts-introduction-figure {
@@ -91,9 +97,16 @@
     opacity: 1;
   }
 
+}
+
+.no-touch .fts-introduction-figure {
   @media screen and (min-width: 700px){
     position: fixed;
   }
+}
+
+.touch .fts-introduction-figure {
+  height: 100%;
 }
 
 .fts-introduction-statement {
@@ -113,6 +126,10 @@
   @media screen and (min-width: 700px){
     height: 100%;
   }
+}
+
+.touch .chapter-1 {
+  height: 100%;
 }
 
 .chapter-1-2 {
@@ -158,10 +175,6 @@
 .chapter-3 {
   width: 100%;
   background: black;
-
-  @media screen and (min-width: 700px){
-    // padding: 0;
-  }
 }
 
 
