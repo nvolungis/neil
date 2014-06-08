@@ -15,6 +15,7 @@
 
   controller = new ScrollMagic();
 
+
   scenes.push({
     register: function(){
       this.$process_icons = $('.process-icons');
@@ -39,6 +40,7 @@
     }
   });
   
+
   scenes.push({
     register: function(){
       this.$heart = $('.heart');
@@ -59,6 +61,7 @@
     }
   });
 
+  
   scenes.push({
     register: function(){
       this.$sentence = $('.sentence');
@@ -78,7 +81,8 @@
       var $chapter = $('.chapter-5');
       $chapter.addClass('active');
     }
-  })
+  });
+
 
   // The responsive design scene
   scenes.push({
@@ -126,6 +130,7 @@
         }]
       });
 
+
       this.scene2 = new ScrollScene({
          triggerElement: '.responsive-animation',
          duration: 600
@@ -165,11 +170,37 @@
 
     setup: function(){
       if($(window).width() <= 700 || Modernizr.touch){
+        this.classes = ['desktop', 'tablet', 'mobile'];
+
         $('.chapter-2').addClass('active');
-        $('.responsive-animation').find('.responsive-animation').removeClass('tablet mobile').addClass('desktop');
+        this.toggle_responsive_animation_class(this.classes, 0);
+        this.start_cycle();
       }
+    },
+
+    start_cycle: function(){
+      var i = 0, len = this.classes.length;
+
+      this.interval = setInterval(function(){
+        i = i < len - 1 ? i + 1 : 0; 
+        this.toggle_responsive_animation_class(this.classes, i);
+      }.bind(this), 1500);
+    },
+
+    stop_cycle: function(){
+      clearInterval(this.interval); 
+    },
+
+    toggle_responsive_animation_class: function(classes, index){
+      var class_to_activate = classes[index],
+          classes_to_deactivate = classes.join(' ');
+
+      $('.responsive-animation')
+        .removeClass(classes_to_deactivate)
+        .addClass(class_to_activate);
     }
   });
+
 
   setup_chapters = function(){
     for(var i = 0; i < scenes.length; i += 1){
@@ -191,8 +222,8 @@
     }
   }
 
-  window.register_chapters = register_chapters;
+  window.register_chapters   = register_chapters;
   window.unregister_chapters = unregister_chapters;
-  window.setyps_chapters = setup_chapters;
+  window.setyps_chapters     = setup_chapters;
 
 }(jQuery));

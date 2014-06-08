@@ -1,42 +1,81 @@
 (function($){
   $(document).ready(function(){
 
-    $('.site-footer-thanks').fitText(1, {
-      maxFontSize: '100px',
-      minFontSize: '50px'
+    var concerns = [];
+
+    concerns.push({
+      purpose:'hook up fittext',
+      register: function(){
+        $('.site-footer-thanks').fitText(1, {
+          maxFontSize: '100px',
+          minFontSize: '50px'
+        });
+      }
     });
 
-    if(!Modernizr.touch) skrollr.init({
-      forceHeight: false
+
+    concerns.push({
+      purpose: 'initialize skrollr for the homepage header', 
+      register: function(){
+        if(!Modernizr.touch) skrollr.init({
+          forceHeight: false
+        });
+      }
     });
 
    
-    enquire.register('screen and (min-width:700px)', {
-      match: function(){
-        if(!Modernizr.touch){ register_chapters(); }
-      }, 
+    concerns.push({
+      purpose: 'setup the functionality for the fresh tilled page',
+      register: function(){
+        enquire.register('screen and (min-width:700px)', {
+          match: function(){
+            if(!Modernizr.touch){ register_chapters(); }
+          }, 
 
-      unmatch: function(){
-        if(!Modernizr.touch){ unregister_chapters(); }
-      },
+          unmatch: function(){
+            if(!Modernizr.touch){ unregister_chapters(); }
+          },
 
-      setup: function(){
-        setup_chapters();
+          setup: function(){
+            setup_chapters();
+          }
+        });
       }
     });
 
-    var asset_loader = new AssetLoader({
-      on_complete: function(){
-        $('body').removeClass('loading');  
+
+    concerns.push({
+      purpose: 'preload some assets the remove loader sceen',
+      register: function(){
+        var asset_loader = new AssetLoader({
+          on_complete: function(){
+            $('body').removeClass('loading');  
+          }
+        });
+
+        asset_loader.load([
+          { id: "avatar",  src: "<%= image_path 'avatar.svg' %>" }, 
+          { id: "icons",   src: "<%= image_path 'sprite-process-icons.svg' %>" }
+        ]);
       }
     });
 
-    asset_loader.load([
-      { id: "avatar",  src: "<%= image_path 'avatar.svg' %>" }, 
-      { id: "icons",   src: "<%= image_path 'sprite-process-icons.svg' %>" }
-    ]);
+
+    concerns.push({
+      purpose: 'trigger window scroll event so to ensure scoll handlers are executed at startup',
+      register: function(){
+        $(window).trigger('scroll');
+      }
+    });
+
+
+    (function(concerns){
+      var i = 0, len = concerns.length;
+
+      for(i=0; i<len; i++){
+        concerns[i].register(); 
+      }
+    }(concerns));
+
   });
-
-
-  $(window).trigger('scroll');
 }(jQuery));
