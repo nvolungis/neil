@@ -79,7 +79,10 @@
 
     setup: function(){
       var $chapter = $('.chapter-5');
-      $chapter.addClass('active');
+      
+      if($(window).width() <= 700 || Modernizr.touch){
+        $chapter.addClass('active');
+      }
     }
   });
 
